@@ -1,0 +1,134 @@
+# espanso match file
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  # Simple text replacement
+  - trigger: "-espanso"
+    replace: "Hi there!"
+
+  # NOTE: espanso uses YAML to define matches, so pay attention to the indentation!
+
+  # But matches can also be dynamic:
+
+  # Print the current date
+  - trigger: "-date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%m/%d/%Y"
+
+  # Print the output of a shell command
+  - trigger: "-shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo 'Hello from your shell'"
+
+  # And much more! For more information, visit the docs: https://espanso.org/docs/
+
+  # Email Related Shortcuts
+  - trigger: ":gem"
+    replace: "business@williamferns.com"
+
+  - trigger: "-ys"
+    replace: "https://youtube.com/results?search_query="
+
+  - trigger: "-ghs"
+    replace: "https://github.com/search?q="
+
+  - trigger: "-gs"
+    replace: "https://google.com/search?q="
+
+  - trigger: "-rs"
+    replace: "https://replit.com/search?query="
+
+  - trigger: "-rpp"
+    replace: "https://replit.com/@WilliamFerns1"
+
+  - trigger: "-rnb"
+    replace: "https://replit.com/bounties?status=open&order=creationDateDescending"
+
+  - trigger: "-ncslofi"
+    replace: "https://www.youtube.com/watch?v=KsXttVfPVQM&t=3327s&ab_channel=Stomp%27sPlaylist"
+  - trigger: ":greet"
+    replace: "Greetings!\nWilliam Ferns"
+
+  - trigger: "-gpp"
+    replace: "https://github.com/WilliamFerns1/"
+
+  - trigger: "-gwp"
+    replace: "https://github.com/WilliamFerns1/memeorandum-like-web-demo"
+
+  - trigger: "-gap"
+    replace: "https://github.com/Automa-Automations/"
+
+  - trigger: "-ypp"
+    replace: "https://youtube.com/@WilliamFernsV2"
+
+  - trigger: "-lpp"
+    replace: "https://www.linkedin.com/in/william-ferns-12670a2b6/"
+
+  - trigger: "-xpp"
+    replace: "https://twitter.com/willfernsdev"
+
+  - trigger: "-ghpr"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "cat ~/.config/espanso/match/outputs/code/github-pr.txt"
+
+  - trigger: "-ghit" # github issue template
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "cat ~/.config/espanso/match/outputs/code/github-issue.txt"
+
+  - trigger: "-twd"
+    replace: "https://tailwindcss.com/docs/installation"
+
+  - trigger: "-ghpt" # Github Profile Readme Template for short personal projects
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "cat ~/.config/espanso/match/outputs/code/githubprojecttemplate.txt"
+
+
+  - trigger: "-mdnd"
+    replace: "https://developer.mozilla.org/en-US/docs/Web"
+
+  - trigger: "-calendly"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "cat ~/.config/espanso/match/outputs/contacts/calendly.txt"
+
+  - trigger: "-cui"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "cat ~/.config/espanso/match/outputs/code/chakrauijsxtemplate.txt"
+
+  - trigger: "-dsacourse" # data structures and algorithms course
+    replace: "https://www.youtube.com/watch?v=RBSGKlAvoiM&ab_channel=freeCodeCamp.org"
+
+  - trigger: "-aafigma" # automa figma design link
+    replace: "https://www.figma.com/file/T0V1EjcNGZrqIRSZr4iePz/Automa-Design?type=design&node-id=5%3A2&mode=design&t=AvvwdL4LCa9DZaa4-1"
+
