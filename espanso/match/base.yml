@@ -62,7 +62,7 @@ matches:
     replace: "Greetings!\nWilliam Ferns"
 
   - trigger: "-gpp"
-    replace: "https://github.com/WilliamFerns1/"
+    replace: "https://github.com/WilliamFernsCodes/"
 
   - trigger: "-gwp"
     replace: "https://github.com/WilliamFerns1/memeorandum-like-web-demo"
