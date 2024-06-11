@@ -112,9 +112,20 @@ vim.diagnostic.config({
 -- Enable line wrapping in the buffer
 vim.wo.wrap = true
 
--- Global variables to store positions and current index
-_G.line_positions = {}
-_G.current_index = 0
+-- Function to reset the remaps for "8" and "9" to their default
+_G.reset_temp_remaps = function()
+  -- Unmap "8" and "9"
+  vim.api.nvim_del_keymap('n', '8')
+  vim.api.nvim_del_keymap('n', '9')
+
+  -- Unmap the temporary reset function mappings
+  for i = 0, 9 do
+    local key = tostring(i)
+    if key ~= "8" and key ~= "9" then
+      vim.api.nvim_del_keymap('n', key)
+    end
+  end
+end
 
 -- Function to find the last occurrence and store all positions
 _G.find_last_char = function()
@@ -140,9 +151,17 @@ _G.find_last_char = function()
   _G.current_index = #_G.line_positions
   vim.api.nvim_win_set_cursor(0, { vim.fn.line('.'), _G.line_positions[_G.current_index] - 1 })
 
-  -- Temporarily remap `;`, `,`, `<C-c>`, and `<Esc>`
+  -- Temporarily remap `8` and `9`
   vim.api.nvim_set_keymap('n', '8', ':lua move_to_prev_occurrence()<CR>', { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '9', ':lua move_to_next_occurrence()<CR>', { noremap = true, silent = true })
+
+  -- Temporarily remap all other number keys to reset the remaps
+  for i = 0, 9 do
+    local key = tostring(i)
+    if key ~= "8" and key ~= "9" then
+      vim.api.nvim_set_keymap('n', key, ':lua reset_temp_remaps()<CR>', { noremap = true, silent = true })
+    end
+  end
 end
 
 -- Function to move to the previous occurrence
@@ -161,5 +180,5 @@ _G.move_to_next_occurrence = function()
   end
 end
 
--- Map the function to a key combination, for example, <leader>f
+-- Map the function to a key combination, for example, <leader>fi
 vim.api.nvim_set_keymap('n', '<leader>fi', ':lua find_last_char()<CR>', { noremap = true, silent = true })
