@@ -218,3 +218,9 @@ exec xset dpms 0 0 1200
 exec_always xset dpms 0 0 1200
 
 bindsym $mod+Shift+v exec pavucontrol
+
+# Keybinding to start playing the audio
+bindsym $mod+Shift+p exec --no-startup-id play_audio.sh
+
+# Keybinding to stop playing the audio
+bindsym $mod+Shift+s exec --no-startup-id pkill mpv
