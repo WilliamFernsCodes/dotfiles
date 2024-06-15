@@ -221,6 +221,8 @@ bindsym $mod+Shift+v exec pavucontrol
 
 # Keybinding to start playing the audio
 bindsym $mod+Shift+p exec --no-startup-id play_audio.sh
-
 # Keybinding to stop playing the audio
 bindsym $mod+Shift+s exec --no-startup-id pkill mpv
+
+# Keybinding to show all i3 shortcuts
+bindsym $mod+Shift+b exec --no-startup-id show_keybindings.sh
