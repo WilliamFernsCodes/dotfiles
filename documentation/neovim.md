@@ -24,5 +24,5 @@ To have a better understanding of how NvChad works, and how to customize it, I r
 - <a href="./neovim/all_mappings.md" target="_blank">All Mappings (Keyboard Shortcuts)</a>
 - <a href="./neovim/lsp_config.md" target="_blank">LSP Config</a>
 - <a href="./neovim/github_copilot.md" target="_blank">Github Copilot Integration</a>
-- <a href="./neovim/custom_configs" target="_blank">Custom Configs</a>
-- <a href="./neovim/nvchad_core_overrides" target="_blank">NvChad Core Overrides</a>
+- <a href="./neovim/custom_configs.md" target="_blank">Custom Configs</a>
+- <a href="./neovim/nvchad_overrides.md" target="_blank">NvChad Core Overrides</a>
