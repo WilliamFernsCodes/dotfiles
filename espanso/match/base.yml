@@ -86,6 +86,8 @@ matches:
         type: shell
         params:
           cmd: "cat ~/.config/espanso/match/outputs/code/github-pr.txt"
+  - trigger: "-htmla"
+    replace: '<a href="T" target="_blank">B</a>'
 
   - trigger: "-ghit" # github issue template
     replace: "{{output}}"
