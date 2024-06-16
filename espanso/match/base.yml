@@ -86,6 +86,8 @@ matches:
         type: shell
         params:
           cmd: "cat ~/.config/espanso/match/outputs/code/github-pr.txt"
+
+  # anchor tag shorthand
   - trigger: "-htmla"
     replace: '<a href="T" target="_blank">B</a>'
 
