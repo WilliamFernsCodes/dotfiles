@@ -54,6 +54,9 @@ local plugins = {
   {
     "tpope/vim-fugitive",
     event = "VeryLazy",
+    config = function()
+      require("custom.configs.fugitive")
+    end,
     dependencies = {
       "tpope/vim-rhubarb",
       "tpope/vim-obsession",
