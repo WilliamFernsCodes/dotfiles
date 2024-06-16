@@ -1,0 +1,11 @@
+nvim
+obsidian
+omf
+fish
+espanso
+i3
+scripts
+tmux
+README.md
+dotfiles_list.txt
+git_add.sh
