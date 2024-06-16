@@ -1,3 +1,12 @@
-2024/06/15-15:06:10.777 835 Reusing MANIFEST /home/adonis/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
-2024/06/15-15:06:10.778 835 Recovering log #4
-2024/06/15-15:06:10.832 835 Reusing old log /home/adonis/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/000004.log 
+2024/06/15-21:18:40.535 769 Reusing MANIFEST /home/adonis/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
+2024/06/15-21:18:40.536 769 Recovering log #4
+2024/06/15-21:18:40.618 769 Reusing old log /home/adonis/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/000004.log 
+2024/06/15-22:46:34.188 7ec Level-0 table #8: started
+2024/06/15-22:46:34.227 7ec Level-0 table #8: 1446377 bytes OK
+2024/06/15-22:46:34.229 7ec Delete type=0 #4
+2024/06/15-22:56:44.146 769 Compacting 1@1 + 1@2 files
+2024/06/15-22:56:44.166 769 Generated table #9@1: 1552 keys, 259713 bytes
+2024/06/15-22:56:44.167 769 Compacted 1@1 + 1@2 files => 259713 bytes
+2024/06/15-22:56:44.168 769 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/06/15-22:56:44.168 769 Delete type=2 #5
+2024/06/15-22:56:44.168 769 Delete type=2 #8
