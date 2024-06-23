@@ -7,6 +7,6 @@ i3
 scripts
 tmux
 README.md
-documentation
+documentation/*
 dotfiles_list.txt
 git_add.sh
