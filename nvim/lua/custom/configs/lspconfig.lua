@@ -34,7 +34,7 @@ lspconfig.lua_ls.setup {
   }
 }
 
-lspconfig.prismals.setup }
+lspconfig.prismals.setup {}
 
 lspconfig.tailwindcss.setup({
   on_attach = on_attach,
