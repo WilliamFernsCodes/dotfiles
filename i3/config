@@ -222,8 +222,8 @@ bindsym $mod+p exec flameshot gui
 # disable touchpad
 exec --no-startup-id "xinput disable 'DELL0816:00 044E:121F Touchpad'"
 
-# bindings to enable and disable touchpad
-bindsym $mod+o exec --no-startup-id "xinput disable 'DELL0816:00 044E:121F Touchpad'"
+# bindings to enable and disable touchpad (change the value inside the `` to the name of your touchpad)
+bindsym $mod+o exec --no-startup-id "xinput disable 'DELL0816:00 044E:121F Touchpad'" 
 bindsym $mod+Shift+o exec --no-startup-id "xinput enable 'DELL0816:00 044E:121F Touchpad'"
 
 # nightlight:
