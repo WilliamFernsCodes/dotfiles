@@ -110,4 +110,3 @@ vim.diagnostic.config({
 
 -- Enable line wrapping in the buffer
 vim.wo.wrap = true
-
