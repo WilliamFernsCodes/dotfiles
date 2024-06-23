@@ -302,7 +302,6 @@ M.nvterm = {
       end,
       "Toggle floating term",
     },
-
     ["<A-h>"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
@@ -326,7 +325,13 @@ M.nvterm = {
       end,
       "Toggle floating term",
     },
-
+    ["<leader>cz"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+        vim.api.nvim_feedkeys("cz commit\n", "n", true)
+      end,
+      "Floating term with commitizen commit",
+    },
     ["<A-h>"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
