@@ -24,8 +24,8 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
         local opts = { buffer = bufnr, remap = false }
 
         vim.keymap.set("n", "<leader>p", git_command('push'), opts)
+        vim.keymap.set("n", "<leader>ga", git_command("add ."), opts)
         vim.keymap.set("n", "<leader>P", git_command('pull --rebase'), opts)
         vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts)
-    -- testing
     end,
 })
