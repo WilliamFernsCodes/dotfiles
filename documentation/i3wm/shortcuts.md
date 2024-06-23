@@ -42,3 +42,6 @@ bindsym $mod+o exec --no-startup-id "xinput disable 'DELL0816:00 044E:121F Touch
 bindsym $mod+Shift+o exec --no-startup-id "xinput enable 'DELL0816:00 044E:121F Touchpad'"
 ```
 Then, reload your i3 config. For me it is `$mod+Shift+c`.
+
+## Conclusion:
+This is it for my i3 config so far. I will make futher changes later on. If you think I missed something, or if you have some other valuable scripts and shortcuts that can be useful, feel free to leave an issue or make a pull request.
