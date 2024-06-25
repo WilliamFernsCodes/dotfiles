@@ -2,6 +2,12 @@ overrides = require("custom.configs.overrides")
 
 local plugins = {
   {
+    "olrtg/nvim-emmet",
+    config = function()
+      vim.keymap.set({ "n", "v" }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation)
+    end,
+  },
+  {
     'laytan/cloak.nvim',
     lazy = false,
     config = function()
@@ -164,6 +170,7 @@ local plugins = {
         "eslint-lsp",
         "prettier",
         "pyright",
+        "emmet-language-server",
         "typescript-language-server",
         "tailwindcss-language-server",
         "prisma-language-server",
