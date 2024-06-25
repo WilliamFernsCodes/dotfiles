@@ -47,6 +47,16 @@ lspconfig.pyright.setup({
   filetypes = { 'python' },
 })
 
+lspconfig.html.setup({
+  capabilities = capabilities,
+})
+
+lspconfig.cssls.setup({
+  capabilities = capabilities,
+})
+
+lspconfig.css_variables.setup({})
+
 lspconfig.emmet_language_server.setup({
   filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
   -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).

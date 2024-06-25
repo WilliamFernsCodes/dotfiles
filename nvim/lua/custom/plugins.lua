@@ -167,6 +167,9 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        "html-lsp",
+        "css-lsp",
+        "css-variables-language-server",
         "eslint-lsp",
         "prettier",
         "pyright",
@@ -179,7 +182,6 @@ local plugins = {
         "ruff",
         "black",
         "debugpy",
-
       }
     }
   },
