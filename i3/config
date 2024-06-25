@@ -210,7 +210,7 @@ gaps outer 5
 smart_gaps on
 
 # Autostart applications
-exec --no-startup-id /usr/bin/espanso start --unmanaged
+exec --no-startup-id /usr/bin/espanso start
 
 # clipboard tool
 exec --no-startup-id greenclip daemon>/dev/null
