@@ -37,6 +37,7 @@ lspconfig.lua_ls.setup {
 lspconfig.prismals.setup {}
 
 lspconfig.tailwindcss.setup({
+  filetypes = { "html", "javascriptreact", "typescriptreact" },
   on_attach = on_attach,
   capabilities = capabilities,
 })
@@ -59,8 +60,6 @@ lspconfig.css_variables.setup({})
 
 lspconfig.emmet_language_server.setup({
   filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
-  -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
-  -- **Note:** only the options listed in the table are supported.
   init_options = {
     ---@type table<string, string>
     includeLanguages = {},
@@ -80,6 +79,6 @@ lspconfig.emmet_language_server.setup({
     syntaxProfiles = {},
     --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
     variables = {},
-  },
+  }
 })
 
