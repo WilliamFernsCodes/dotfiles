@@ -1,5 +1,12 @@
 local M = {}
 
+local function refactor_with_args(command)
+  -- Prompt for user input
+  local args = vim.fn.input("Arguments: ")
+  -- Execute the command with the provided arguments
+  vim.cmd(command .. " " .. args)
+end
+
 M.general = {
   n = {
   }
@@ -40,16 +47,16 @@ M.formatting = {
 
 M.refactoring = {
   n = {
-    ["<leader>ri"] = { "<cmd> :Refactor inline_var", "Refactor inline_var" },
-    ["<leader>rI"] = { "<cmd> :Refactor inline_func", "Refactor inline_func" },
-    ["<leader>rb"] = { "<cmd> :Refactor extract_block", "Refactor extract_block" },
-    ["<leader>rbf"] = { "<cmd> :Refactor extract_block_to_file", "Refactor extract_block_to_file" },
+    ["<leader>ri"] = { function() refactor_with_args("Refactor inline_var") end, "Refactor inline_var" },
+    ["<leader>rI"] = { function() refactor_with_args("Refactor inline_func") end, "Refactor inline_func" },
+    ["<leader>rb"] = { function() refactor_with_args("Refactor extract_block") end, "Refactor extract_block" },
+    ["<leader>rbf"] = { function() refactor_with_args("Refactor extract_block_to_file") end, "Refactor extract_block_to_file" },
   },
   x = {
-    ["<leader>re"] = { "<cmd> :Refactor extract ", "Refactor extract " },
-    ["<leader>rf"] = { "<cmd> :Refactor extract_to_file ", "Refactor extract_to_file " },
-    ["<leader>rv"] = { "<cmd> :Refactor extract_var ", "Refactor extract_var " },
-    ["<leader>ri"] = { "<cmd> :Refactor inline_var", "Refactor inline_var" },
+    ["<leader>re"] = { function() refactor_with_args("Refactor extract") end, "Refactor extract" },
+    ["<leader>rf"] = { function() refactor_with_args("Refactor extract_to_file") end, "Refactor extract_to_file" },
+    ["<leader>rv"] = { function() refactor_with_args("Refactor extract_var") end, "Refactor extract_var" },
+    ["<leader>ri"] = { function() refactor_with_args("Refactor inline_var") end, "Refactor inline_var" },
   }
 }
 
@@ -118,6 +125,23 @@ M.dap_python = {
         require("dap-python").test_method()
       end
     },
+  }
+}
+
+M.telescope = {
+  n = {
+    ["<leader>rr"] = {
+      function()
+        require('telescope').extensions.refactoring.refactors()
+      end
+    }
+  },
+  s = {
+    ["<leader>rr"] = {
+      function()
+        require('telescope').extensions.refactoring.refactors()
+      end
+    }
   }
 }
 
