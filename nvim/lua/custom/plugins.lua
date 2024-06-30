@@ -1,6 +1,19 @@
 overrides = require("custom.configs.overrides")
 
+sum = 1 + 2 + 3
+
 local plugins = {
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require('refactoring').setup()
+    end,
+    lazy = false,
+  },
   {
     "olrtg/nvim-emmet",
     config = function()
