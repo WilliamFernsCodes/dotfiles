@@ -104,6 +104,35 @@ local default_plugins = {
       dofile(vim.g.base46_cache .. "mason")
       require("mason").setup(opts)
 
+      local pylsp = require("mason-registry").get_package("python-lsp-server")
+      pylsp:on("install:success", function()
+        local function mason_package_path(package)
+          local path = vim.fn.resolve(vim.fn.stdpath("data") .. "/mason/packages/" .. package)
+          return path
+        end
+
+        local path = mason_package_path("python-lsp-server")
+        local command = path .. "/venv/bin/pip"
+        local args = {
+          "install",
+          "pylsp-rope",
+          "python-lsp-black",
+          "pyflakes",
+          "python-lsp-ruff",
+          "pyls-flake8",
+          "sqlalchemy-stubs",
+        }
+
+        require("plenary.job")
+          :new({
+            command = command,
+            args = args,
+            cwd = path,
+          })
+          :start()
+      end)
+
+
       -- custom nvchad cmd to install all mason binaries listed
       vim.api.nvim_create_user_command("MasonInstallAll", function()
         if opts.ensure_installed and #opts.ensure_installed > 0 then
