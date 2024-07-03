@@ -48,6 +48,9 @@ lspconfig.pyright.setup({
   filetypes = { 'python' },
 })
 
+lspconfig.pylsp.setup{}
+
+
 lspconfig.html.setup({
   capabilities = capabilities,
 })

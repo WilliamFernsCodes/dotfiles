@@ -180,6 +180,7 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        "python-lsp-server",
         "html-lsp",
         "css-lsp",
         "css-variables-language-server",
