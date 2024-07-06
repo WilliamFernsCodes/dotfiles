@@ -1,8 +1,18 @@
-overrides = require("custom.configs.overrides")
-
-sum = 1 + 2 + 3
+local overrides = require("custom.configs.overrides")
 
 local plugins = {
+  {
+    'Weissle/persistent-breakpoints.nvim',
+    lazy = false,
+    config = function()
+      require('persistent-breakpoints').setup {
+        save_dir = vim.fn.stdpath('data') .. '/nvim_checkpoints',
+        load_breakpoints_event = { "BufReadPost" },
+        perf_record = false,
+        on_load_breakpoint = nil,
+      }
+    end
+  },
   {
     "ThePrimeagen/refactoring.nvim",
     dependencies = {
