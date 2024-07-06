@@ -141,7 +141,7 @@ end
 M.dap = {
   plugin = true,
   n = {
-    ["<leader>cbd"] = {
+    ["<leader>dcb"] = {
       function()
         toggle_breakpoint()
       end,
