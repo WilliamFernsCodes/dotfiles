@@ -36,16 +36,80 @@ M.formatting = {
 
 M.refactoring = {
   n = {
-    ["<leader>ri"] = { function() refactor_with_args("Refactor inline_var") end, "Refactor inline_var" },
-    ["<leader>rI"] = { function() refactor_with_args("Refactor inline_func") end, "Refactor inline_func" },
-    ["<leader>rb"] = { function() refactor_with_args("Refactor extract_block") end, "Refactor extract_block" },
-    ["<leader>rbf"] = { function() refactor_with_args("Refactor extract_block_to_file") end, "Refactor extract_block_to_file" },
+    ["<leader>ri"] = {
+      function()
+        refactor_with_args("Refactor inline_var")
+      end,
+      "Refactor inline_var"
+    },
+    ["<leader>rI"] = {
+      function()
+        refactor_with_args("Refactor inline_func")
+      end,
+      "Refactor inline_func"
+    },
+    ["<leader>rb"] = {
+      function()
+        refactor_with_args("Refactor extract_block")
+      end,
+      "Refactor extract_block"
+    },
+    ["<leader>rbf"] = {
+      function()
+        refactor_with_args("Refactor extract_block_to_file")
+      end,
+      "Refactor extract_block_to_file"
+    },
+    ["<leader>rpf"] = {
+      function()
+        require('refactoring').debug.printf({below = true})
+      end,
+      "Printf: Automated insertion of print statement to mark the calling of a function"
+    },
+    ["<leader>pv"] = {
+      function()
+        require('refactoring').debug.print_var()
+      end,
+      "Print Variable"
+    },
+    ["<leader>rc"] = {
+      function()
+        require('refactoring').debug.cleanup({})
+      end,
+      "Clean up print statements"
+    },
   },
   x = {
-    ["<leader>re"] = { function() refactor_with_args("Refactor extract") end, "Refactor extract" },
-    ["<leader>rf"] = { function() refactor_with_args("Refactor extract_to_file") end, "Refactor extract_to_file" },
-    ["<leader>rv"] = { function() refactor_with_args("Refactor extract_var") end, "Refactor extract_var" },
-    ["<leader>ri"] = { function() refactor_with_args("Refactor inline_var") end, "Refactor inline_var" },
+    ["<leader>re"] = {
+      function()
+        refactor_with_args("Refactor extract")
+      end,
+      "Refactor extract"
+    },
+    ["<leader>rf"] = {
+      function()
+        refactor_with_args("Refactor extract_to_file")
+      end,
+      "Refactor extract_to_file"
+    },
+    ["<leader>rv"] = {
+      function()
+        refactor_with_args("Refactor extract_var")
+      end,
+      "Refactor extract_var"
+    },
+    ["<leader>ri"] = {
+      function()
+        refactor_with_args("Refactor inline_var")
+      end,
+      "Refactor inline_var"
+    },
+    ["<leader>pv"] = {
+      function()
+        require('refactoring').debug.print_var()
+      end,
+      "Print Variable"
+    },
   }
 }
 
