@@ -62,7 +62,7 @@ M.refactoring = {
     },
     ["<leader>rpf"] = {
       function()
-        require('refactoring').debug.printf({below = true})
+        require('refactoring').debug.printf({ below = true })
       end,
       "Printf: Automated insertion of print statement to mark the calling of a function"
     },
@@ -157,6 +157,12 @@ M.harpoon = {
 M.dap = {
   plugin = true,
   n = {
+    ["<leader>dso"] = {
+      function()
+        vim.cmd("DapStepOver")
+      end,
+      "DapStepOver"
+    },
     ["<leader>dbc"] = {
       function()
         require('persistent-breakpoints.api').clear_all_breakpoints()
@@ -253,6 +259,90 @@ M.telescope = {
         require('telescope').extensions.refactoring.refactors()
       end,
       "TelescopeRefactoringTool"
+    }
+  }
+}
+
+M.smart_splits = {
+  n = {
+    ['<A-h>'] = {
+      function()
+        require('smart-splits').resize_left()
+      end,
+      "Resize Left"
+    },
+    ['<A-j>'] = {
+      function()
+        require('smart-splits').resize_down()
+      end,
+      "Resize Down"
+    },
+    ['<A-k>'] = {
+      function()
+        require('smart-splits').resize_up()
+      end,
+      "Resize Up"
+    },
+    ['<A-l>'] = {
+      function()
+        require('smart-splits').resize_right()
+      end,
+      "Resize Right"
+    },
+    ['<C-h>'] = {
+      function()
+        require('smart-splits').move_cursor_left()
+      end,
+      "Move Cursor Left"
+    },
+    ['<C-j>'] = {
+      function()
+        require('smart-splits').move_cursor_down()
+      end,
+      "Move Cursor Down"
+    },
+    ['<C-k>'] = {
+      function()
+        require('smart-splits').move_cursor_up()
+      end,
+      "Move Cursor_up"
+    },
+    ['<C-l>'] = {
+      function()
+        require('smart-splits').move_cursor_right()
+      end,
+      "Move Cursor_right"
+    },
+    ['<C-\\>'] = {
+      function()
+        require('smart-splits').move_cursor_previous()
+      end,
+      "Move Cursor Previous"
+    },
+    ['<leader><leader>h'] = {
+      function()
+        require('smart-splits').swap_buf_left()
+      end,
+      "Swap Buf Left"
+    },
+    ['<leader><leader>j'] = {
+      function()
+        require('smart-splits').swap_buf_down()
+      end,
+      "Swap Buf Down"
+
+    },
+    ['<leader><leader>k'] = {
+      function()
+        require('smart-splits').swap_buf_up()
+      end,
+      "Swap Buf Up"
+    },
+    ['<leader><leader>l'] = {
+      function()
+        require('smart-splits').swap_buf_right()
+      end,
+      "Swap Buf Right"
     }
   }
 }

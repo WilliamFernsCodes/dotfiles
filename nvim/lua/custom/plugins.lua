@@ -2,6 +2,10 @@ local overrides = require("custom.configs.overrides")
 
 local plugins = {
   {
+    'mrjones2014/smart-splits.nvim',
+    lazy = false,
+  },
+  {
     'Weissle/persistent-breakpoints.nvim',
     lazy = false,
     config = function()
@@ -155,10 +159,10 @@ local plugins = {
     event = "InsertEnter",
     opts = overrides.copilot,
   },
-  {
-    'christoomey/vim-tmux-navigator',
-    lazy = false,
-  },
+  -- {
+  --   'christoomey/vim-tmux-navigator',
+  --   lazy = false,
+  -- },
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
