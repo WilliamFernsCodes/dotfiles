@@ -359,6 +359,8 @@ M.dap_widgets = {
         require('dap.ui.widgets').hover()
         -- make so that when I press "esc", it closes the widget
         vim.api.nvim_buf_set_keymap(0, "n", "<esc>", "<cmd>q!<CR>", { noremap = true, silent = true })
+        -- do the same for <C-c>
+        vim.api.nvim_buf_set_keymap(0, "n", "<C-c>", "<cmd>q!<CR>", { noremap = true, silent = true })
       end,
       "DapHover"
     }
