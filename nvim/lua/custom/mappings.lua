@@ -187,12 +187,6 @@ M.dap = {
       end,
       "DapContinue"
     },
-    ["<leader>dh"] = {
-      function()
-        vim.cmd("DapToggleHover")
-      end,
-      "DapToggleHover"
-    },
     ["<leader>di"] = {
       function()
         vim.cmd("DapStepInto")
@@ -358,5 +352,17 @@ M.splits = {
   }
 }
 
+M.dap_widgets = {
+  n = {
+    ["<leader>dh"] = {
+      function()
+        require('dap.ui.widgets').hover()
+        -- make so that when I press "esc", it closes the widget
+        vim.api.nvim_buf_set_keymap(0, "n", "<esc>", "<cmd>q!<CR>", { noremap = true, silent = true })
+      end,
+      "DapHover"
+    }
+  }
+}
 
 return M
