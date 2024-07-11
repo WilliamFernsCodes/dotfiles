@@ -347,4 +347,16 @@ M.smart_splits = {
   }
 }
 
+M.splits = {
+  n = {
+    ["<leader>%"] = {
+      " <cmd> vsp<CR>", "Split vertically",
+    },
+    ['<leader>"'] = {
+      " <cmd> sp<CR>", "Split horizontally",
+    }
+  }
+}
+
+
 return M
