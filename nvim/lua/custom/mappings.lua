@@ -352,6 +352,21 @@ M.splits = {
   }
 }
 
+M.windows = {
+  n = {
+    ["<leader>w="] = {
+      " <cmd> wincmd =<CR>", "Windows Equal",
+    },
+    ['<leader>wf'] = {
+      function()
+        vim.cmd("wincmd _")
+        vim.cmd("wincmd |")
+      end,
+      "Split horizontally",
+    }
+  }
+}
+
 M.dap_widgets = {
   n = {
     ["<leader>dh"] = {
