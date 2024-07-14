@@ -105,8 +105,14 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     config = function(_, opts)
-      require("core.utils").load_mappings("dap")
-    end
+      require("custom.configs.nvim_dap")
+    end,
+    dependencies = {
+      -- install the vscode-js debug adapter
+      "microsoft/vscode-js-debug",
+      -- After install, build it and rename the dist to out
+      build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+    },
   },
   {
     "mfussenegger/nvim-dap-python",
@@ -118,7 +124,6 @@ local plugins = {
     config = function(_, opts)
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
-      require("core.utils").load_mappings("dap_python")
     end
   },
   {

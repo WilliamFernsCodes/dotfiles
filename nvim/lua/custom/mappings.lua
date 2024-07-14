@@ -1,5 +1,8 @@
 local refactor_with_args = require "custom.custom_functions".refactor_with_args
+local dap_js_based_languages = require("custom.variables").dap_js_based_languages
+
 local M = {}
+
 
 M.navigation = {
   n = {
@@ -155,7 +158,6 @@ M.harpoon = {
 }
 
 M.dap = {
-  plugin = true,
   n = {
     ["<leader>dso"] = {
       function()
@@ -222,13 +224,38 @@ M.dap = {
         vim.cmd("DapTerminate")
       end,
       "DapTerminate"
-    }
-  }
-}
-
-M.dap_python = {
-  plugin = true,
-  n = {
+    },
+    ["<leader>dp"] = {
+      function()
+        require("dap").pause()
+      end,
+      "Dap Pause"
+    },
+    ["<leader>dwa"] = {
+      function()
+        if vim.fn.filereadable(".vscode/launch.json") then
+          local dap_vscode = require("dap.ext.vscode")
+          dap_vscode.load_launchjs(nil, {
+            ["pwa-node"] = dap_js_based_languages,
+            ["node"] = dap_js_based_languages,
+            ["chrome"] = dap_js_based_languages,
+            ["pwa-chrome"] = dap_js_based_languages,
+          })
+        end
+        require("dap").continue()
+      end,
+      "Run Dap with Args"
+    },
+    ["<leader>dh"] = {
+      function()
+        require('dap.ui.widgets').hover()
+        -- make so that when I press "esc", it closes the widget
+        vim.api.nvim_buf_set_keymap(0, "n", "<esc>", "<cmd>q!<CR>", { noremap = true, silent = true })
+        -- do the same for <C-c>
+        vim.api.nvim_buf_set_keymap(0, "n", "<C-c>", "<cmd>q!<CR>", { noremap = true, silent = true })
+      end,
+      "DapHover"
+    },
     ["<leader>dpr"] = {
       function()
         require("dap-python").test_method()
@@ -237,6 +264,7 @@ M.dap_python = {
     },
   }
 }
+
 
 M.telescope = {
   n = {
@@ -366,20 +394,4 @@ M.windows = {
     }
   }
 }
-
-M.dap_widgets = {
-  n = {
-    ["<leader>dh"] = {
-      function()
-        require('dap.ui.widgets').hover()
-        -- make so that when I press "esc", it closes the widget
-        vim.api.nvim_buf_set_keymap(0, "n", "<esc>", "<cmd>q!<CR>", { noremap = true, silent = true })
-        -- do the same for <C-c>
-        vim.api.nvim_buf_set_keymap(0, "n", "<C-c>", "<cmd>q!<CR>", { noremap = true, silent = true })
-      end,
-      "DapHover"
-    }
-  }
-}
-
 return M
