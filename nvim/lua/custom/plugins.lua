@@ -2,6 +2,28 @@ local overrides = require("custom.configs.overrides")
 
 local plugins = {
   {
+    "jay-babu/mason-nvim-dap.nvim",
+    dependencies = "mason.nvim",
+    cmd = { "DapInstall", "DapUninstall" },
+    opts = {
+      -- Makes a best effort to setup the various debuggers with
+      -- reasonable debug configurations
+      automatic_installation = true,
+
+      -- You can provide additional configuration to the handlers,
+      -- see mason-nvim-dap README for more information
+      handlers = {},
+
+      -- You'll need to check that you have the required things installed
+      -- online, please don't ask me how to install them :)
+      ensure_installed = {
+        -- Update this to ensure that you have the debuggers for the langs you want
+      },
+    },
+    -- mason-nvim-dap is loaded when nvim-dap loads
+    config = function() end,
+  },
+  {
     'mrjones2014/smart-splits.nvim',
     lazy = false,
   },
@@ -108,10 +130,57 @@ local plugins = {
       require("custom.configs.nvim_dap")
     end,
     dependencies = {
-      -- install the vscode-js debug adapter
-      "microsoft/vscode-js-debug",
-      -- After install, build it and rename the dist to out
-      build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+      "rcarriga/nvim-dap-ui",
+      -- virtual text for the debugger
+      {
+        "theHamsta/nvim-dap-virtual-text",
+        opts = {},
+      },
+      {
+        -- install the vscode-js debug adapter
+        "microsoft/vscode-js-debug",
+        -- After install, build it and rename the dist to out
+        build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+      },
+      {
+        "mxsdev/nvim-dap-vscode-js",
+        config = function()
+          ---@diagnostic disable-next-line: missing-fields
+          require("dap-vscode-js").setup({
+            -- Path of the node executable. Defaults to $NODE_PATH, and then "node"
+            -- node_path = "node",
+            -- Path to vscode-js-debug installation
+            debugger_path = vim.fn.resolve(vim.fn.stdpath("data") .. "/lazy/vscode-js-debug"),
+
+            -- Command to use to launch the debug server. Takes precedence over "node_path" and "debugger_path"
+            -- debugger_path = { "js_debug_adapter" },
+
+            -- which adapters to register in nvim-dap
+            adapters = {
+              "chrome",
+              "pwa-node",
+              "pwa-chrome",
+              "pwa-msedge",
+              "pwa-extensionHost",
+              "node-terminal",
+              "node",
+            },
+
+            -- Path for file logging
+            -- log_file_path = vim.fn.stdpath("cache") .. "/dap_vscode_js.log",
+
+            -- Logging level for output to file. Set to false to disable logging
+            -- log_file_level = false,
+
+            -- Logging level for output to console. Set to false to disable console output
+            -- log_console_level = vim.log.levels.DEBUG,
+          })
+        end,
+      },
+      {
+        "Joakker/lua-json5",
+        run = './install.sh',
+      }
     },
   },
   {

@@ -213,7 +213,7 @@ M.dap = {
       end,
       "DapToggle"
     },
-    ["<leader>du"] = {
+    ["<leader>drt"] = {
       function()
         vim.cmd("DapRunToCursor")
       end,
@@ -262,6 +262,19 @@ M.dap = {
       end,
       "DapPythonRun"
     },
+    -- nvim dap ui mappings
+    ["<leader>du"] = {
+      function()
+        require("dapui").toggle({ })
+      end,
+      "Dap UI Toggle" 
+    },
+    ["<leader>de"] = {
+      function()
+        require("dapui").eval()
+      end,
+      "Dap Evaluate"
+    }
   }
 }
 
