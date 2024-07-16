@@ -132,10 +132,10 @@ local plugins = {
     dependencies = {
       "rcarriga/nvim-dap-ui",
       -- virtual text for the debugger
-      {
-        "theHamsta/nvim-dap-virtual-text",
-        opts = {},
-      },
+      -- {
+      --   "theHamsta/nvim-dap-virtual-text",
+      --   opts = {},
+      -- },
       {
         -- install the vscode-js debug adapter
         "microsoft/vscode-js-debug",
