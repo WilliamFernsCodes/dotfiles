@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Get the timer duration from the user
-duration=$(zenity --entry --title="Countdown Timer" --text="How many minutes? ")
+duration=$(zenity --entry --title="Countdown Timer" --text="How many minutes?" --width=100 --height=150)
 
 # Check if the user canceled the input dialog or entered an invalid number
 if [[ -z "$duration" || ! "$duration" =~ ^[0-9]+$ ]]; then
-    zenity --error --text="Please enter a valid number."
+    zenity --error --text="Please enter a valid number." --width=100 --height=150
     exit 1
 fi
 
@@ -16,11 +16,11 @@ duration=$((duration * 60))
 (
     for ((i=$duration; i>0; i--)); do
         duration_minutes=$((i / 60))
-        echo "# Time remaining: $duration_minutes minutes ($i seconds)."
+        echo "Time remaining: $duration_minutes min"
         echo "$((100 - (i * 100 / duration)))"
         sleep 1
     done
-) | zenity --progress --title="Countdown Timer" --text="Time remaining: $duration seconds" --percentage=0 --auto-close &
+) | zenity --progress --title="Countdown Timer" --text="Time remaining: $duration seconds" --percentage=0 --auto-close & --width=100 --height =150
 
 # Wait a moment to allow the Zenity window to appear
 sleep 1
