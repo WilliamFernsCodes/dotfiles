@@ -10,3 +10,4 @@ README.md
 documentation/*
 dotfiles_list.txt
 git_add.sh
+screenkey.json
