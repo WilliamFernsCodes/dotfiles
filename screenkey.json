@@ -1,6 +1,6 @@
 {
     "no_systray": false,
-    "timeout": 2.5,
+    "timeout": 0.0,
     "recent_thr": 0.1,
     "compr_cnt": 3,
     "ignore": [],
@@ -20,10 +20,10 @@
     "vis_shift": false,
     "vis_space": false,
     "geometry": [
-        979,
-        597,
-        356,
-        85
+        1062,
+        590,
+        263,
+        57
     ],
     "screen": 0,
     "start_disabled": false,

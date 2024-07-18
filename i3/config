@@ -244,7 +244,9 @@ bindsym $mod+Shift+s exec --no-startup-id pkill mpv
 bindsym $mod+Shift+b exec --no-startup-id show_keybindings.sh
 
 # Keybinding to open up a countdown timer
-bindsym $mod+Shift+t exec --no-startup-id countdown_timer.sh
+bindsym $mod+Shift+t exec --no-startup-id toggle_timer.sh
 
 # Keybinding to toggle screenkey on and off
 bindsym Mod1+s exec --no-startup-id toggle_screenkey.sh
+
+exec --no-startup-id screenkey
