@@ -16,11 +16,11 @@ duration=$((duration * 60))
 (
     for ((i=$duration; i>0; i--)); do
         duration_minutes=$((i / 60))
-        echo "Time remaining: $duration_minutes min"
+        echo "# Time remaining: $duration_minutes minutes"
         echo "$((100 - (i * 100 / duration)))"
         sleep 1
     done
-) | zenity --progress --title="Countdown Timer" --text="Time remaining: $duration seconds" --percentage=0 --auto-close & --width=100 --height =150
+) | zenity --progress --title="Countdown Timer" --text="Time remaining: $duration seconds" --percentage=0 --auto-close &
 
 # Wait a moment to allow the Zenity window to appear
 sleep 1
