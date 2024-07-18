@@ -10,21 +10,25 @@ if [[ -z "$duration" || ! "$duration" =~ ^[0-9]+$ ]]; then
 fi
 
 # Convert minutes to seconds
-duration=$((duration * 60))
+duration_seconds=$((duration * 60))
+# Ensure duration_minutes is at least 1
+duration_minutes=$((duration_seconds / 60))
+if [[ $duration_minutes -eq 0 ]]; then
+    duration_minutes=1
+fi
 
 # Start the countdown in the background
 (
-    for ((i=$duration; i>0; i--)); do
-	# Ensure duration_minutes is at least 1
-	duration_minutes=$((duration / 60))
-	if [[ $duration_minutes -eq 0 ]]; then
-	    duration_minutes=1
-	fi
-        echo "# Time remaining: $duration_minutes min"
-        echo "$((100 - (i * 100 / duration)))"
+    for ((i=duration_seconds; i>0; i--)); do
+        minutes_remaining=$((i / 60))
+        if [[ $minutes_remaining -eq 0 ]]; then
+            minutes_remaining=1
+        fi
+        echo "# Time remaining: $minutes_remaining min"
+        echo "$((100 - (i * 100 / duration_seconds)))"
         sleep 1
     done
-) | zenity --progress --title="Countdown Timer" --text="Time remaining: $duration seconds" --percentage=0 --auto-close &
+) | zenity --progress --title="Countdown Timer" --text="Time remaining: $duration_minutes min" --percentage=0 --auto-close &
 
 # Wait a moment to allow the Zenity window to appear
 sleep 0.1
