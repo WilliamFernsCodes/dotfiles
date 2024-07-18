@@ -15,22 +15,47 @@ duration=$((duration * 60))
 # Start the countdown in the background
 (
     for ((i=$duration; i>0; i--)); do
-        duration_minutes=$((i / 60))
-        echo "# Time remaining: $duration_minutes minutes"
+	# Ensure duration_minutes is at least 1
+	duration_minutes=$((duration / 60))
+	if [[ $duration_minutes -eq 0 ]]; then
+	    duration_minutes=1
+	fi
+        echo "# Time remaining: $duration_minutes min"
         echo "$((100 - (i * 100 / duration)))"
         sleep 1
     done
 ) | zenity --progress --title="Countdown Timer" --text="Time remaining: $duration seconds" --percentage=0 --auto-close &
 
 # Wait a moment to allow the Zenity window to appear
-sleep 1
+sleep 0.1
 
 # Get the PID of the Zenity progress dialog
 zenity_pid=$!
 
-# Get the Zenity progress dialog's window ID and set it to stay on top and be visible on all workspaces
-wmctrl -r "Countdown Timer" -b add,above
-wmctrl -r "Countdown Timer" -b add,sticky
+# Wait for the progress dialog to finish initializing
+sleep 0.1
+
+# Get the Zenity progress dialog's window ID
+zenity_window_id=$(wmctrl -l | grep "Countdown Timer" | awk '{print $1}')
+
+# Calculate screen dimensions
+screen_width=$(xdpyinfo | grep dimensions | awk '{print $2}' | cut -d 'x' -f 1)
+screen_height=$(xdpyinfo | grep dimensions | awk '{print $2}' | cut -d 'x' -f 2)
+
+# Calculate position with a small margin from the right and a margin from the top
+margin_right=25
+margin_top=20
+zenity_width=300
+zenity_height=100
+position_x=$((screen_width - zenity_width - margin_right))
+position_y=$margin_top
+
+# Move the Zenity dialog to the calculated position
+wmctrl -i -r "$zenity_window_id" -e 0,$position_x,$position_y,-1,-1
+
+# Set Zenity dialog to stay on top and visible on all workspaces
+wmctrl -i -r "$zenity_window_id" -b add,above
+wmctrl -i -r "$zenity_window_id" -b add,sticky
 
 # Wait for the progress dialog to finish
 wait $zenity_pid
@@ -45,3 +70,4 @@ fi
 
 # Play the alarm sound
 paplay /usr/share/sounds/timer/alarm.mp3
+
