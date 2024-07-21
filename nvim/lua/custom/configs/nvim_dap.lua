@@ -42,6 +42,7 @@ for _, language in ipairs(js_based_languages) do
           end)
         end)
       end,
+      -- webRoot = vim.fn.getcwd(),
       webRoot = "${workspaceFolder}",
       skipFiles = { "<node_internals>/**/*.js" },
       protocol = "inspector",
@@ -50,30 +51,41 @@ for _, language in ipairs(js_based_languages) do
       useDataDir = false,
       port = 9222,
     },
+    -- {
+    --   type = "pwa-chrome",
+    --   request = "attach",
+    --   name = "Attach and Debug Chrome",
+    --   url = function()
+    --     local co = coroutine.running()
+    --     return coroutine.create(function()
+    --       vim.ui.input({
+    --         prompt = "Enter URL: ",
+    --         default = "http://localhost:3000",
+    --       }, function(url)
+    --         if url == nil or url == "" then
+    --           return
+    --         else
+    --           coroutine.resume(co, url)
+    --         end
+    --       end)
+    --     end)
+    --   end,
+    --   webRoot = "${workspaceFolder}",
+    --   skipFiles = { "<node_internals>/**/*.js" },
+    --   protocol = "inspector",
+    --   sourceMaps = true,
+    --   port = 9222,
+    -- },
     {
-      type = "pwa-chrome",
-      request = "attach",
-      name = "Attach and Debug Chrome",
-      url = function()
-        local co = coroutine.running()
-        return coroutine.create(function()
-          vim.ui.input({
-            prompt = "Enter URL: ",
-            default = "http://localhost:3000",
-          }, function(url)
-            if url == nil or url == "" then
-              return
-            else
-              coroutine.resume(co, url)
-            end
-          end)
-        end)
-      end,
-      webRoot = "${workspaceFolder}",
-      skipFiles = { "<node_internals>/**/*.js" },
-      protocol = "inspector",
+      type = 'pwa-chrome',
+      request = 'attach',
+      name = 'Attach Program (pwa-chrome = { port: 9222 })',
+      program = '${file}',
+      cwd = vim.fn.getcwd(),
       sourceMaps = true,
+      protocol = 'inspector',
       port = 9222,
+      webRoot = '${workspaceFolder}',
     },
     -- Divider for the launch.json derived configs
     {
@@ -84,4 +96,3 @@ for _, language in ipairs(js_based_languages) do
     -- add the logic here ot load config. I think I accidentally removed this
   }
 end
-

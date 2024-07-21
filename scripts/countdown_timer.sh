@@ -31,13 +31,13 @@ fi
 ) | zenity --progress --title="Countdown Timer" --text="Time remaining: $duration_minutes min" --percentage=0 --auto-close &
 
 # Wait a moment to allow the Zenity window to appear
-sleep 0.1
+sleep 0.3
 
 # Get the PID of the Zenity progress dialog
 zenity_pid=$!
 
 # Wait for the progress dialog to finish initializing
-sleep 0.1
+sleep 0.3
 
 # Get the Zenity progress dialog's window ID
 zenity_window_id=$(wmctrl -l | grep "Countdown Timer" | awk '{print $1}')
