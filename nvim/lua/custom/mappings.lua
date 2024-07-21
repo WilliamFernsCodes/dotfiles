@@ -267,7 +267,13 @@ M.dap = {
       function()
         require("dapui").toggle({ })
       end,
-      "Dap UI Toggle" 
+      "Dap UI Toggle"
+    },
+    ["<leader>dut"] = {
+      function()
+        require("dap.ui.widgets").centered_float(require("dap.ui.widgets").threads)
+      end,
+      "Dap UI Threads"
     },
     ["<leader>de"] = {
       function()
