@@ -382,4 +382,49 @@ M.dap_widgets = {
   }
 }
 
+M.glow = {
+  n = {
+    ["<leader>mp"] = {
+      function()
+        local filename = string.gsub(vim.fn.expand("%"), " ", "\\ ")
+        local command = "Glow " .. filename
+        print("Running command: " .. command)
+        vim.cmd(command)
+      end,
+      "Glow Preview Current Markdown File"
+    },
+  }
+}
+
+M.wrap_lines = {
+  n = {
+    ["<leader>tw"] = {
+      function()
+        -- ignore lua_ls "undefined field "get""
+        -- @diagnostic disable-next-line
+        local is_wrap = vim.opt.wrap:get()
+        if is_wrap then
+          vim.opt.wrap = false
+        else
+          vim.opt.wrap = true
+        end
+      end,
+      "Toggle Line Wrap",
+    },
+    ["<leader>wtw"] = {
+      function()
+        -- ignore linting "undefined field get"
+        -- @diagnostic disable-next-line
+        local is_wrap = vim.opt.wrap:get()
+        if is_wrap then
+          -- set wrapping to false for all windows
+          vim.cmd("windo set nowrap")
+        else
+          vim.cmd("windo set wrap")
+        end
+      end,
+      "Toggle Line Wrap All Windows",
+    },
+  }
+}
 return M

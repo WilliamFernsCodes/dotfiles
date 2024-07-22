@@ -40,3 +40,8 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+#deno
+set -x DENO_INSTALL /home/adonis/.deno
+set -x PATH $DENO_INSTALL/bin $PATH
+#deno end
