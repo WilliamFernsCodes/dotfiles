@@ -167,13 +167,12 @@ local plugins = {
             },
 
             -- Path for file logging
-            log_file_path = vim.fn.stdpath("cache") .. "/dap_vscode_js.log",
+            -- log_file_path = vim.fn.stdpath("cache") .. "/dap_vscode_js.log",
 
             -- Logging level for output to file. Set to false to disable logging
-            log_file_level = false,
-
+            -- log_file_level = false,
             -- Logging level for output to console. Set to false to disable console output
-            log_console_level = vim.log.levels.DEBUG
+            -- log_console_level = vim.log.levels.DEBUG
           })
         end,
       },
