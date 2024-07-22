@@ -1,12 +1,5 @@
 local options = {
-  ensure_installed = {
-    "lua",
-    "tsx",
-    "javascript",
-    "typescript",
-    "css",
-    "html",
-  },
+  ensure_installed = { "lua", "vim", "vimdoc" },
 
   highlight = {
     enable = true,
@@ -14,15 +7,6 @@ local options = {
   },
 
   indent = { enable = true },
-  additional_vim_regex_highlighting = false,
-
-  require('ts_context_commentstring').setup {
-    enable_autocmd = false,
-    languages = {
-      typescript = '// %s',
-    },
-  }
-
 }
 
 return options

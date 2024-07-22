@@ -9,19 +9,20 @@ M.general = {
     ["<C-e>"] = { "<End>", "End of line" },
 
     -- navigate within insert mode
-    -- ["<C-h>"] = { "<Left>", "Move left" },
-    -- ["<C-l>"] = { "<Right>", "Move right" },
-    -- ["<C-j>"] = { "<Down>", "Move down" },
-    -- ["<C-k>"] = { "<Up>", "Move up" },
+    ["<C-h>"] = { "<Left>", "Move left" },
+    ["<C-l>"] = { "<Right>", "Move right" },
+    ["<C-j>"] = { "<Down>", "Move down" },
+    ["<C-k>"] = { "<Up>", "Move up" },
   },
 
   n = {
     ["<Esc>"] = { "<cmd> noh <CR>", "Clear highlights" },
     -- switch between windows
-    -- ["<C-h>"] = { "<C-w>h", "Window left" },
-    -- ["<C-l>"] = { "<C-w>l", "Window right" },
-    -- ["<C-j>"] = { "<C-w>j", "Window down" },
-    -- ["<C-k>"] = { "<C-w>k", "Window up" },
+    ["<C-h>"] = { "<C-w>h", "Window left" },
+    ["<C-l>"] = { "<C-w>l", "Window right" },
+    ["<C-j>"] = { "<C-w>j", "Window down" },
+    ["<C-k>"] = { "<C-w>k", "Window up" },
+
     -- save
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
 
@@ -269,13 +270,13 @@ M.telescope = {
 
   n = {
     -- find
-    ["<leader>pf"] = { "<cmd> Telescope find_files <CR>", "Find files" },
-    ["<leader>fg"] = { "<cmd> Telescope git_files <CR>", "Find git files" },
-    ["<leader>ps"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
+    ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
+    ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
+    ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
-    ["<leader>fzf"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
+    ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
 
     -- git
     ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
@@ -302,6 +303,7 @@ M.nvterm = {
       end,
       "Toggle floating term",
     },
+
     ["<A-h>"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
@@ -325,13 +327,7 @@ M.nvterm = {
       end,
       "Toggle floating term",
     },
-    ["<leader>cz"] = {
-      function()
-        require("nvterm.terminal").toggle "float"
-        vim.api.nvim_feedkeys("cz commit\n", "n", true)
-      end,
-      "Floating term with commitizen commit",
-    },
+
     ["<A-h>"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
