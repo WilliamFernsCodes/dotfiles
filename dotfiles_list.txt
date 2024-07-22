@@ -1,5 +1,4 @@
 nvim
-obsidian
 omf
 fish
 espanso
