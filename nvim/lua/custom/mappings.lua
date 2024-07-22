@@ -413,4 +413,66 @@ M.windows = {
     }
   }
 }
+
+M.dap_widgets = {
+  n = {
+    ["<leader>dh"] = {
+      function()
+        require('dap.ui.widgets').hover()
+        -- make so that when I press "esc", it closes the widget
+        vim.api.nvim_buf_set_keymap(0, "n", "<esc>", "<cmd>q!<CR>", { noremap = true, silent = true })
+        -- do the same for <C-c>
+        vim.api.nvim_buf_set_keymap(0, "n", "<C-c>", "<cmd>q!<CR>", { noremap = true, silent = true })
+      end,
+      "DapHover"
+    }
+  }
+}
+
+M.glow = {
+  n = {
+    ["<leader>mp"] = {
+      function()
+        local filename = string.gsub(vim.fn.expand("%"), " ", "\\ ")
+        local command = "Glow " .. filename
+        print("Running command: " .. command)
+        vim.cmd(command)
+      end,
+      "Glow Preview Current Markdown File"
+    },
+  }
+}
+
+M.wrap_lines = {
+  n = {
+    ["<leader>tw"] = {
+      function()
+        -- ignore lua_ls "undefined field "get""
+        -- @diagnostic disable-next-line
+        local is_wrap = vim.opt.wrap:get()
+        if is_wrap then
+          vim.opt.wrap = false
+        else
+          vim.opt.wrap = true
+        end
+      end,
+      "Toggle Line Wrap",
+    },
+    ["<leader>wtw"] = {
+      function()
+        -- ignore linting "undefined field get"
+        -- @diagnostic disable-next-line
+        local is_wrap = vim.opt.wrap:get()
+        if is_wrap then
+          -- set wrapping to false for all windows
+          vim.cmd("windo set nowrap")
+        else
+          vim.cmd("windo set wrap")
+        end
+      end,
+      "Toggle Line Wrap All Windows",
+    },
+  }
+}
+
 return M

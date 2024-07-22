@@ -1,6 +1,7 @@
 local overrides = require("custom.configs.overrides")
 
 local plugins = {
+  { "ellisonleao/glow.nvim",    config = true, cmd = "Glow" },
   {
     "jay-babu/mason-nvim-dap.nvim",
     dependencies = "mason.nvim",
@@ -249,13 +250,13 @@ local plugins = {
   --     return require "custom.configs.null-ls"
   --   end,
   -- },
-  -- {
-  --   "mhartington/formatter.nvim",
-  --   event = "VeryLazy",
-  --   opts = function()
-  --     return require "custom.configs.formatter"
-  --   end
-  -- },
+  {
+    "mhartington/formatter.nvim",
+    event = "VeryLazy",
+    opts = function()
+      return require "custom.configs.formatter"
+    end
+  },
   -- {
   --   "mfussenegger/nvim-lint",
   --   event = "VeryLazy",
@@ -271,7 +272,7 @@ local plugins = {
         "html-lsp",
         "css-lsp",
         "css-variables-language-server",
-        "eslint-lsp",
+        -- "eslint-lsp",
         "prettier",
         "pyright",
         "emmet-language-server",
@@ -291,13 +292,6 @@ local plugins = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
-    end,
-  },
-  {
-    "Pocco81/auto-save.nvim",
-    event = { "TextChanged" },
-    config = function()
-      require("auto-save").setup({})
     end,
   },
   {

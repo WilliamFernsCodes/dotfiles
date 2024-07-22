@@ -24,6 +24,17 @@ lspconfig.tsserver.setup {
   }
 }
 
+lspconfig.eslint.setup({
+  --- ...
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd(" BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+})
+
+
 lspconfig.lua_ls.setup {
   on_init = function(client)
     local path = client.workspace_folders[1].name
