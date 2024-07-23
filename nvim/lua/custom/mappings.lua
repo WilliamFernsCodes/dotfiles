@@ -205,13 +205,14 @@ M.dap = {
       end,
       "DapRestart"
     },
-    ["<leader>dt"] = {
+    ["<leader>dut"] = {
       function()
         vim.cmd("DapToggle")
+        require("dapui").toggle()
       end,
-      "DapToggle"
+      "Dap UI Toggle"
     },
-    ["<leader>du"] = {
+    ["<leader>drc"] = {
       function()
         vim.cmd("DapRunToCursor")
       end,
