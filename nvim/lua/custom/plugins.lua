@@ -199,7 +199,7 @@ local plugins = {
         "html-lsp",
         "css-lsp",
         "css-variables-language-server",
-        -- "eslint-lsp",
+        "eslint-lsp",
         "prettier",
         "pyright",
         "emmet-language-server",
