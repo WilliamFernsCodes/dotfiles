@@ -1,5 +1,4 @@
 nvim
-obsidian
 omf
 fish
 espanso
@@ -10,3 +9,5 @@ README.md
 documentation/*
 dotfiles_list.txt
 git_add.sh
+screenkey.json
+nvim.setting_up_debugger
