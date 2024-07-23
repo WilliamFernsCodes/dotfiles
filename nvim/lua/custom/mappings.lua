@@ -428,4 +428,39 @@ M.wrap_lines = {
     },
   }
 }
+M.obsidian = {
+  n = {
+    ["ogf"] = {
+      function()
+        return require("obsidian").util.gf_passthrough()
+      end,
+      "Go to File/Link - Obsidian"
+    },
+    -- Toggle check-boxes.
+    ["<leader>oct"] = {
+      function()
+        return require("obsidian").util.toggle_checkbox()
+      end,
+      "Toggle Checkbox - Obsidian"
+    },
+    ["<leader>odn"] = {
+      "<cmd> ObsidianToday<CR>",
+      "Open Todays Note"
+    },
+    ["<leader>ofl"] = {
+      "<cmd> ObsidianFollowLink<CR>",
+      "Obsidian Follow Link"
+    },
+  },
+  x = {
+    ["<leader>ol"] = {
+      action = function()
+        vim.cmd("ObsidianLink ")
+        vim.api.nvim_set_keymap('x', '<leader>ol', ':ObsidianLink ', { noremap = true, silent = true })
+      end,
+      "Pre-fill ObsidianLink Command"
+    }
+  }
+}
+
 return M
