@@ -121,8 +121,7 @@ local plugins = {
           end
         end
 
-        local date = os.date("%Y-%m-%d")
-        local path = spec.dir / "days" / date / filename
+        local path = spec.dir / filename
         return path:with_suffix(".md")
       end,
 

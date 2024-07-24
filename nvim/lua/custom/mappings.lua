@@ -445,7 +445,15 @@ M.obsidian = {
     },
     ["<leader>odn"] = {
       "<cmd> ObsidianToday<CR>",
-      "Open Todays Note"
+      "Obsidian Daily Note (Today)"
+    },
+    ["<leader>oyn"] = {
+      "<cmd> ObsidianYesterday<CR>",
+      "Open Yesterday's Note"
+    },
+    ["<leader>ont"] = {
+      "<cmd> ObsidianTomorrow<CR>",
+      "Obsidian Note Tomorrow"
     },
     ["<leader>ofl"] = {
       "<cmd> ObsidianFollowLink<CR>",
@@ -455,24 +463,81 @@ M.obsidian = {
       function()
         command_with_args("ObsidianDailies")
       end,
-      "ObsidianDailies"
+      "ObsidianDailies (Specify Offset)"
     },
+    ["<leader>onn"] = {
+      function()
+        command_with_args("ObsidianNew")
+      end,
+      "Obsidian New Note (Specify Note Path)"
+    },
+    ["<leader>otn"] = {
+      function()
+        command_with_args("ObsidianNewFromTemplate")
+      end,
+      "Obsidian New Note From Template (Specify New Note Path)"
+    },
+    ["<leader>ooa"] = {
+      function()
+        command_with_args("ObsidianOpen")
+      end,
+      "Obsidian Open App (Specify Query)"
+    },
+    ["<leader>opi"] = {
+      function()
+        command_with_args("ObsidianPasteImg")
+      end,
+      "Obsidian Paste Image (Specify Image Name)"
+    },
+    ["<leader>orn"] = {
+      function()
+        command_with_args("ObsidianRename")
+      end,
+      "Obsidian Rename (Specify New Name)"
+    },
+    ["<leader>otc"] = {
+      "<cmd> ObsidianTOC<CR>",
+      "Obsidian Table of Contents"
+    },
+    ["<leader>oat"] = {
+      function()
+        command_with_args("ObsidianTags")
+      end,
+      "Obsidian Tags (Specify Tag Name)"
+    },
+    ["<leader>oit"] = {
+      function()
+        command_with_args("ObsidianTemplate")
+      end,
+      "Obsidian Insert Template (Specify Template Name)"
+    },
+    ["<leader>ow"] = {
+      function()
+        command_with_args("ObsidianWorkspace")
+      end,
+      "Obsidian Workspace (Specify Workspace Name)"
+    }
   },
 
   x = {
-    ["<leader>don"] = {
-      function()
-        command_with_args("ObsidianDailies")
-      end,
-      "ObsidianDailies"
+    ["<leader>obl"] = {
+      "<cmd> ObsidianLink<CR>",
+      "ObsidianBindLink"
     },
-    ["<leader>ol"] = {
+    ["<leader>oln"] = {
       function()
-        command_with_args("ObsidianLink")
+        command_with_args("ObsidianLinkNew")
       end,
-      "Pre-fill ObsidianLink Command"
-    }
+      "Obsidian New Link (Specify Note Name)"
+    },
+    ["<leader>oxn"] = {
+      function()
+        command_with_args("ObsidianExtractNote")
+      end,
+      "Obsidian Extract Note (Specify Note Name)"
+    },
   }
+
 }
 
 return M
