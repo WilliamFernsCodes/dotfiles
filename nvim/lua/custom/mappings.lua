@@ -1,4 +1,4 @@
-local refactor_with_args = require "custom.custom_functions".refactor_with_args
+local command_with_args = require "custom.custom_functions".command_with_args
 local M = {}
 
 M.navigation = {
@@ -38,25 +38,25 @@ M.refactoring = {
   n = {
     ["<leader>ri"] = {
       function()
-        refactor_with_args("Refactor inline_var")
+        command_with_args("Refactor inline_var")
       end,
       "Refactor inline_var"
     },
     ["<leader>rI"] = {
       function()
-        refactor_with_args("Refactor inline_func")
+        command_with_args("Refactor inline_func")
       end,
       "Refactor inline_func"
     },
     ["<leader>rb"] = {
       function()
-        refactor_with_args("Refactor extract_block")
+        command_with_args("Refactor extract_block")
       end,
       "Refactor extract_block"
     },
     ["<leader>rbf"] = {
       function()
-        refactor_with_args("Refactor extract_block_to_file")
+        command_with_args("Refactor extract_block_to_file")
       end,
       "Refactor extract_block_to_file"
     },
@@ -82,25 +82,25 @@ M.refactoring = {
   x = {
     ["<leader>re"] = {
       function()
-        refactor_with_args("Refactor extract")
+        command_with_args("Refactor extract")
       end,
       "Refactor extract"
     },
     ["<leader>rf"] = {
       function()
-        refactor_with_args("Refactor extract_to_file")
+        command_with_args("Refactor extract_to_file")
       end,
       "Refactor extract_to_file"
     },
     ["<leader>rv"] = {
       function()
-        refactor_with_args("Refactor extract_var")
+        command_with_args("Refactor extract_var")
       end,
       "Refactor extract_var"
     },
     ["<leader>ri"] = {
       function()
-        refactor_with_args("Refactor inline_var")
+        command_with_args("Refactor inline_var")
       end,
       "Refactor inline_var"
     },
@@ -451,12 +451,24 @@ M.obsidian = {
       "<cmd> ObsidianFollowLink<CR>",
       "Obsidian Follow Link"
     },
+    ["<leader>don"] = {
+      function()
+        command_with_args("ObsidianDailies")
+      end,
+      "ObsidianDailies"
+    },
   },
+
   x = {
+    ["<leader>don"] = {
+      function()
+        command_with_args("ObsidianDailies")
+      end,
+      "ObsidianDailies"
+    },
     ["<leader>ol"] = {
-      action = function()
-        vim.cmd("ObsidianLink ")
-        vim.api.nvim_set_keymap('x', '<leader>ol', ':ObsidianLink ', { noremap = true, silent = true })
+      function()
+        command_with_args("ObsidianLink")
       end,
       "Pre-fill ObsidianLink Command"
     }

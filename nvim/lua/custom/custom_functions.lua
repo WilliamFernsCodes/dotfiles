@@ -1,6 +1,6 @@
 local M = {};
 
-M.refactor_with_args = function(command)
+M.command_with_args = function(command)
   -- Prompt for user input
   local args = vim.fn.input("Arguments: ")
   -- Execute the command with the provided arguments
