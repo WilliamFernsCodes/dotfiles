@@ -428,6 +428,7 @@ M.wrap_lines = {
     },
   }
 }
+
 M.obsidian = {
   n = {
     ["ogf"] = {
@@ -513,7 +514,7 @@ M.obsidian = {
     },
     ["<leader>ow"] = {
       function()
-        command_with_args("ObsidianWorkspace")
+       command_with_args("ObsidianWorkspace")
       end,
       "Obsidian Workspace (Specify Workspace Name)"
     }
