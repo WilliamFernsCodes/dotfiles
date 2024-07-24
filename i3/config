@@ -223,7 +223,7 @@ bindsym $mod+p exec flameshot gui
 exec --no-startup-id "xinput disable 'DELL0816:00 044E:121F Touchpad'"
 
 # bindings to enable and disable touchpad (change the value inside the `` to the name of your touchpad)
-bindsym $mod+o exec --no-startup-id "xinput disable 'DELL0816:00 044E:121F Touchpad'" 
+bindsym $mod+o exec --no-startup-id "xinput disable 'DELL0816:00 044E:121F Touchpad'"
 bindsym $mod+Shift+o exec --no-startup-id "xinput enable 'DELL0816:00 044E:121F Touchpad'"
 
 # nightlight:
@@ -242,11 +242,5 @@ bindsym $mod+Shift+s exec --no-startup-id pkill mpv
 
 # Keybinding to show all i3 shortcuts
 bindsym $mod+Shift+b exec --no-startup-id show_keybindings.sh
-
-# Keybinding to open up a countdown timer
-bindsym $mod+Shift+t exec --no-startup-id toggle_timer.sh
-
-# Keybinding to toggle screenkey on and off
-bindsym Mod1+s exec --no-startup-id toggle_screenkey.sh
 
 exec --no-startup-id screenkey

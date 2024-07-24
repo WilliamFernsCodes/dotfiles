@@ -113,7 +113,7 @@ local plugins = {
 
         -- Log spec.dir
         print("Spec Dir: " .. vim.inspect(spec.dir))
-        local paths_to_ignore = { "templates", "other"}
+        local paths_to_ignore = { "templates", "other" }
         -- see if the directory is in the paths to ignore
         for _, path in ipairs(paths_to_ignore) do
           if string.find(spec.dir.filename, path) then
