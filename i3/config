@@ -243,4 +243,8 @@ bindsym $mod+Shift+s exec --no-startup-id pkill mpv
 # Keybinding to show all i3 shortcuts
 bindsym $mod+Shift+b exec --no-startup-id show_keybindings.sh
 
-exec --no-startup-id screenkey
+exec --no-startup-id systemctl start cronie
+
+exec --no-startup-id /usr/local/bin/enable-usb-wakeup.sh
+
+exec --no-startup-id bash -c "for device in /sys/bus/usb/devices/*/power/wakeup; do echo -n \"$device: \"; cat $device; done"
