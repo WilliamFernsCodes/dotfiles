@@ -379,7 +379,6 @@ local plugins = {
     end
   },
   { 'ThePrimeagen/vim-be-good', lazy = false },
-  { 'wakatime/vim-wakatime',    lazy = false },
   {
     'barrett-ruth/live-server.nvim',
     build = 'pnpm add -g live-server',
