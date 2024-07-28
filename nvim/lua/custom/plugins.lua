@@ -27,9 +27,9 @@ local plugins = {
               -- Optional, if you keep daily notes in a separate directory.
               folder = "notes/daily_work_notes",
               -- Optional, if you want to change the date format for the ID of daily notes.
-              date_format = "%-d-%m-%Y",
+              date_format = "%d-%m-%Y",
               -- Optional, if you want to change the date format of the default alias of daily notes.
-              alias_format = "%-d %B, %Y",
+              alias_format = "%d %B, %Y",
               -- Optional, default tags to add to each new daily note created.
               default_tags = { "daily-notes" },
               -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
@@ -58,7 +58,7 @@ local plugins = {
         -- Optional, if you keep daily notes in a separate directory.
         folder = "notes/dailies",
         -- Optional, if you want to change the date format for the ID of daily notes.
-        date_format = "%-d-%m-%Y",
+        date_format = "%d-%m-%Y",
         -- Optional, if you want to change the date format of the default alias of daily notes.
         alias_format = "%-d %B, %Y",
         -- Optional, default tags to add to each new daily note created.
@@ -75,7 +75,7 @@ local plugins = {
       },
       mappings = {},
       -- Optional, if you keep notes in a specific subdirectory of your vault.
-      notes_subdir = "notes",
+      notes_subdir = "notes/other",
       -- Where to put new notes. Valid options are
       --  * "current_dir" - put new notes in same directory as the current buffer.
       --  * "notes_subdir" - put new notes in the default notes subdirectory.
