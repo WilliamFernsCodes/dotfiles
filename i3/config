@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $backgroundWallpaper '~/.config/assets/wallpapers/wallpaper_1.jpg'
+set $backgroundWallpaper ~/.config/assets/wallpapers/wallpaper_1.jpg
 set $preferredTerminal xfce4-terminal
 set $preferredBrowser chromium
 set $preferredFileManager thunar
@@ -23,24 +23,38 @@ font pango:DejaVu Sans Mono 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-#autostart
+# Wallpaper
 exec --no-startup-id feh --no-fehbg --bg-fill $backgroundWallpaper
-exec --no-startup-id xsettingsd &
-exec --no-startup-id copyq
+
+# Appearance and settings
+# exec --no-startup-id xsettingsd &
+# Notification daemon
 exec --no-startup-id dunst
-# exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
-exec --no-startup-id desktop-items
+
+# Desktop items (may include icons or widgets)
+# exec --no-startup-id desktop-items
+
+# Network management
 exec --no-startup-id nm-applet
-exec --no-startup-id lxrandr
+
+# Display settings
+# exec --no-startup-id lxrandr
+
+# Authentication agent (might be used for system dialogs)
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Power management
 exec --no-startup-id xfce4-power-manager
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id setcursor
+
+# Custom theme and cursor settings
+# exec_always --no-startup-id ff-theme-util
+# exec_always --no-startup-id setcursor
+
+# Numlock
 exec_always --no-startup-id numlockx on
+
+# Bluetooth tray
 exec blueberry-tray
-exec --no-startup-id java -Xmx1024m -jar "/opt/xdman/xdman.jar" -m
-exec --no-startup-id ~/.local/bin/fastfetch-garuda
-exec --no-startup-id ~/.local/bin/shcts
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
@@ -179,8 +193,9 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -231,8 +246,8 @@ bar {
     tray_output primary
 }
 
-gaps inner 15
-gaps outer 0
+gaps inner 10
+gaps outer 5
 # smart_gaps on
 
 # Autostart applications
@@ -283,9 +298,9 @@ for_window [class=".*"] border pixel 2
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #1F51FF #1F51FF #ffffff #1F51FF   #1F51FF
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.focused_inactive #000000 #000000 #ffffff #000000   #000000
+client.unfocused        #000000 #000000 #ffffff #000000   #000000
+client.urgent           #000000 #000000 #ffffff #000000   #000000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
