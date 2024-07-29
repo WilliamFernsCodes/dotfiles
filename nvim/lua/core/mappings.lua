@@ -1,4 +1,5 @@
 -- n, v, i, t = mode names
+--
 
 local M = {}
 
@@ -298,20 +299,22 @@ M.nvterm = {
     -- toggle in terminal mode
     ["<A-i>"] = {
       function()
-        require("nvterm.terminal").toggle "float"
+        require("nvterm.terminal").toggle("float",  {
+          cmd = "fish"
+        })
       end,
       "Toggle floating term",
     },
     ["<A-h>"] = {
       function()
-        require("nvterm.terminal").toggle "horizontal"
+        require("nvterm.terminal").toggle("horizontal", { cmd = "fish" })
       end,
       "Toggle horizontal term",
     },
 
     ["<A-v>"] = {
       function()
-        require("nvterm.terminal").toggle "vertical"
+        require("nvterm.terminal").toggle("vertical", { cmd = "fish" })
       end,
       "Toggle vertical term",
     },
@@ -321,27 +324,33 @@ M.nvterm = {
     -- toggle in normal mode
     ["<A-i>"] = {
       function()
-        require("nvterm.terminal").toggle "float"
+        require("nvterm.terminal").toggle("float", {
+          cmd = "fish"  -- Specify Fish as the command to run in the terminal
+        })
       end,
       "Toggle floating term",
     },
     ["<leader>cz"] = {
       function()
-        require("nvterm.terminal").toggle "float"
+        require("nvterm.terminal").toggle("float", {
+          cmd = "fish"  -- Specify Fish as the command to run in the terminal
+        })
         vim.api.nvim_feedkeys("cz commit\n", "n", true)
       end,
       "Floating term with commitizen commit",
     },
     ["<A-h>"] = {
       function()
-        require("nvterm.terminal").toggle "horizontal"
+        require("nvterm.terminal").toggle("horizontal", {
+          cmd = "fish"
+        })
       end,
       "Toggle horizontal term",
     },
 
     ["<A-v>"] = {
       function()
-        require("nvterm.terminal").toggle "vertical"
+        require("nvterm.terminal").toggle("vertical", { cmd = "fish" })
       end,
       "Toggle vertical term",
     },
@@ -349,7 +358,7 @@ M.nvterm = {
     -- new
     ["<leader>h"] = {
       function()
-        require("nvterm.terminal").new "horizontal"
+        require("nvterm.terminal").new("horizontal", { cmd = "fish" })
       end,
       "New horizontal term",
     },

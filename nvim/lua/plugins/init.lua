@@ -26,6 +26,7 @@ local default_plugins = {
       require "base46.term"
       require("nvterm").setup(opts)
     end,
+    lazy = false,
   },
 
   {
