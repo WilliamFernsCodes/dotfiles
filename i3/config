@@ -17,7 +17,6 @@ set $preferredScreenCaptureTool /usr/bin/flameshot gui
 
 set $mod Mod4
 set $alt Mod1
-
 font pango:DejaVu Sans Mono 8
 
 # Start XDG autostart .desktop files using dex. See also
@@ -277,7 +276,9 @@ exec --no-startup-id bash -c "for device in /sys/bus/usb/devices/*/power/wakeup;
 bindsym $mod+$alt+b exec $preferredBrowser
 bindsym $mod+$alt+f exec $preferredFileManager
 
+bindsym $alt+e exec rofimoji
 
+# Appearance
 for_window [class=".*"] border pixel 2
 
 # class                 border  backgr. text    indicator child_border
