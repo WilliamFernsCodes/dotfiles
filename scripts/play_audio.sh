@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mpv --loop=inf ~/Music/work-music.mp4
+mpv --loop=inf ~/.config/assets/audio/work_music.mp3

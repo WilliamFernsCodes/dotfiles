@@ -9,3 +9,4 @@ dotfiles_list.txt
 git_add.sh
 screenkey.json
 nvim.setting_up_debugger
+assets

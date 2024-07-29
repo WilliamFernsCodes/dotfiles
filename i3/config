@@ -9,6 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+set $backgroundWallpaper '~/.config/assets/wallpapers/wallpaper_1.jpg'
 set $preferredTerminal xfce4-terminal
 set $preferredBrowser chromium
 set $preferredFileManager thunar
@@ -24,11 +25,11 @@ font pango:DejaVu Sans Mono 8
 exec --no-startup-id dex --autostart --environment i3
 
 #autostart
-exec --no-startup-id ~/.fehbg
+exec --no-startup-id feh --no-fehbg --bg-fill $backgroundWallpaper
 exec --no-startup-id xsettingsd &
 exec --no-startup-id copyq
 exec --no-startup-id dunst
-exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
+# exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 exec --no-startup-id desktop-items
 exec --no-startup-id nm-applet
 exec --no-startup-id lxrandr
@@ -36,7 +37,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfce4-power-manager
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id setcursor
-#exec_always --no-startup-id ${HOME}/.config/polybar/launch.sh
 exec_always --no-startup-id numlockx on
 exec blueberry-tray
 exec --no-startup-id java -Xmx1024m -jar "/opt/xdman/xdman.jar" -m
@@ -44,7 +44,7 @@ exec --no-startup-id ~/.local/bin/fastfetch-garuda
 exec --no-startup-id ~/.local/bin/shcts
 
 # Set shut down, restart and locking features
-bindsym $super+0 mode "$mode_system"
+bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
@@ -153,7 +153,6 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -165,7 +164,6 @@ bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -177,7 +175,6 @@ bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -235,9 +232,9 @@ bar {
     tray_output primary
 }
 
-gaps inner 10
-gaps outer 5
-smart_gaps on
+gaps inner 15
+gaps outer 0
+# smart_gaps on
 
 # Autostart applications
 exec --no-startup-id /usr/bin/espanso start
@@ -279,3 +276,15 @@ exec --no-startup-id bash -c "for device in /sys/bus/usb/devices/*/power/wakeup;
 
 bindsym $mod+$alt+b exec $preferredBrowser
 bindsym $mod+$alt+f exec $preferredFileManager
+
+
+for_window [class=".*"] border pixel 2
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #1F51FF #1F51FF #ffffff #1F51FF   #1F51FF
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
