@@ -218,14 +218,14 @@ bar {
     font pango:Fira Code 10
 
     colors {
-        background #282c34
-        statusline #ffffff
-        separator  #4c566a
+        # background transparent
+        # statusline #ffffff
+        # separator  #4c566a
 
-        focused_workspace  #4c566a #3b4252 #ffffff
-        active_workspace   #3b4252 #434c5e #ffffff
-        inactive_workspace #282c34 #3b4252 #ffffff
-        urgent_workspace   #bf616a #2f343a #ffffff
+        focused_workspace  #4c566a #000000 #ffffff
+        active_workspace   #000000 #000000 #ffffff
+        inactive_workspace #000000 #000000 #ffffff
+        urgent_workspace   #000000 #000000 #ffffff
     }
 
     tray_output primary
