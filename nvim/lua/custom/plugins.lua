@@ -19,26 +19,6 @@ local plugins = {
           path = vim.fn.expand("~") .. "/Documents/workspaces/personal/",
         },
         {
-          name = "work",
-          path = vim.fn.expand("~") .. "/Documents/workspaces/work/",
-
-          overrides = {
-            daily_notes = {
-              -- Optional, if you keep daily notes in a separate directory.
-              folder = "notes/daily_work_notes",
-              -- Optional, if you want to change the date format for the ID of daily notes.
-              date_format = "%d-%m-%Y",
-              -- Optional, if you want to change the date format of the default alias of daily notes.
-              alias_format = "%d %B, %Y",
-              -- Optional, default tags to add to each new daily note created.
-              default_tags = { "daily-notes" },
-              -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-              template = "Daily Work Note.md"
-            },
-            new_notes_location = "notes_subdir",
-          },
-        },
-        {
           name = "no-vault",
           path = function()
             return assert(vim.fs.dirname(vim.api.nvim_buf_get_name(0)))
