@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Function to adjust color temperature to remove blue light and add red
+adjust_color_temperature() {
+    # Get the list of connected displays
+    displays=$(xrandr | grep " connected" | awk '{print $1}')
+
+    # Loop through each display and adjust color temperature
+    for display in $displays; do
+        xrandr --output $display --gamma 1:0.7:0.1 --brightness 0.7
+    done
+}
+
+# Main function
+main() {
+   adjust_color_temperature
+}
+
+# Start the main function with command-line arguments
+main
+
