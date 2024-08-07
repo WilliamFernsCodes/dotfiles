@@ -114,6 +114,14 @@ matches:
   - trigger: "-mdnd"
     replace: "https://developer.mozilla.org/en-US/docs/Web"
 
+  - trigger: "-calendll"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "cat ~/.config/espanso/match/outputs/contacts/calendll.txt"
+
   - trigger: "-calendly"
     replace: "{{output}}"
     vars:
@@ -135,4 +143,3 @@ matches:
 
   - trigger: "-aafigma" # automa figma design link
     replace: "https://www.figma.com/file/T0V1EjcNGZrqIRSZr4iePz/Automa-Design?type=design&node-id=5%3A2&mode=design&t=AvvwdL4LCa9DZaa4-1"
-

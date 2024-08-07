@@ -363,7 +363,7 @@ M.windows = {
         vim.cmd("wincmd _")
         vim.cmd("wincmd |")
       end,
-      "Split horizontally",
+      "Window Full",
     }
   }
 }
